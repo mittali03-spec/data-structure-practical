@@ -1,0 +1,51 @@
+#include<stdio.h>
+
+int main()
+{
+    int arr[50], n, i, j, min, temp;
+
+    printf("Enter number of elements: ");
+    scanf("%d",&n);
+
+    printf("Enter array elements:\n");
+
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+
+    for(i=0;i<n-1;i++)
+    {
+        min = i;
+
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[j] < arr[min])
+            {
+                min = j;
+            }
+        }
+
+for(i=1; i<n; i++)
+    {
+        key = arr[i];
+        j = i - 1;
+
+        while(j >= 0 && arr[j] > key)
+        {
+            arr[j+1] = arr[j];
+            j = j - 1;
+        }
+
+        arr[j+1] = key;
+    }
+
+    printf("Sorted array:\n");
+
+    for(i=0; i<n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
